@@ -1,0 +1,60 @@
+
+<!doctype html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Reversi</title> 
+	{% load custom_filter %}
+
+
+    {% load static %}
+	<link href="{% static 'bootstrap/css/bootstrap.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
+	<script src="{% static 'js/index.js' %}" language="javascript"></script>
+</head>
+
+
+<h1>Reversi - {{request.session.message}}</h1>
+
+<body>
+	<div class="container">
+		{% for line in request.session.board %}
+		
+			<div class="row">
+			{% for cell in line %}
+			{% with x=forloop.parentloop.counter0|stringformat:"s" %}
+			{% with y=forloop.counter0|stringformat:"s" %}
+				{% if cell.motion == True and cell.color == 1 %}
+					<a class="span1 flipToBlue"><img src="{% static 'img/clic.svg' %}"></a>
+				{% elif cell.motion == True and cell.color == 0 %}
+					<a class="span1 flipToOrange"><img src="{% static 'img/clic.svg' %}"></a>
+				{% elif cell.color == 1 %}
+					<a class="span1 blue"><img src="{% static 'img/clic.svg' %}"></a>
+				{% elif cell.color == 0 %}
+					<a class="span1 orange"><img src="{% static 'img/clic.svg' %}"></a>
+				{% elif cell.playable == True and request.session.playersTurn == 1 %}
+					<a class="span1 playable_blue" href="{% url "app_reversi.views.move" x|concat:y %}"><img src="{% static 'img/clic.svg' %}"></a>
+				{% elif cell.playable == True and request.session.playersTurn == 0 %}
+					<a class="span1 playable_orange" href="{% url "app_reversi.views.move" x|concat:y %}"><img src="{% static 'img/clic.svg' %}"></a>
+
+				{% elif cell.color == ' ' %}
+					<a class="span1" ><img src="{% static 'img/clic.svg' %}"></a>
+				{% endif %}
+			{% endwith %}
+			{% endwith %}
+			{% endfor %}
+
+			</div>
+		
+		{% endfor %}
+		
+		<div class="row">
+			<div class="span8">
+				<a class="btn btn-info btn-large" href="{% url "app_reversi.views.chooseGame" 0 %}">Play Blue</a>
+				<a class="btn btn-warning btn-large" href="{% url "app_reversi.views.chooseGame" 1 %}">Play Orange</a>
+				<a class="btn btn-success btn-large" href="{% url "app_reversi.views.chooseGame" 2 %}">Play a friend</a>
+			</div>
+		</div>
+	</div>
+
+</html>
+

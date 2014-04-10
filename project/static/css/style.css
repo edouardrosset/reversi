@@ -1,0 +1,98 @@
+
+
+.span1 {
+ line-height: 60px;
+ text-align: center;
+ margin-bottom: 20px;
+ border-radius: 10px 10px 10px 10px;
+ border-style:solid;
+ border-width:1px;
+ border-color:lightgrey;
+ background-color: white;
+}
+
+.playable_blue,
+.playable_orange {
+  cursor: pointer;
+}
+
+.playable_blue:hover,
+.playable_orange:hover,
+.flipping_blue,
+.flipping_orange {
+  cursor: pointer;
+  -webkit-transform: scale(0.90);
+  -moz-transform: scale(0.90);
+  -ms-transform: scale(0.90);
+  -o-transform: scale(0.90);
+  transform: scale(0.90);
+  -webkit-transition: 0.15s all ease;
+  -moz-transition: 0.15s all ease;
+  -ms-transition: 0.15s all ease;
+  -o-transition: 0.15s all ease;
+  transition: 0.15s all ease;
+}
+
+.flipped_blue,
+.flipped_orange{
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: 0.15s all ease;
+  -moz-transition: 0.15s all ease;
+  -ms-transition: 0.15s all ease;
+  -o-transition: 0.15s all ease;
+  transition: 0.15s all ease;
+}
+
+
+.blue,
+.orange,
+.playable_blue:hover,
+.playable_orange:hover,
+.flipped_blue,
+.flipped_orange,
+.flipping_blue,
+.flipping_orange{
+  border-color:white;
+}
+
+.playable_blue:hover,
+.flipToOrange,
+.blue,
+.flipped_blue,
+.flipping_orange{
+  background-color: lightblue;
+}
+
+.playable_orange:hover,
+.flipToBlue,
+.orange,
+.flipped_orange,
+.flipping_blue{
+  background-color: orange;
+}
+
+.span8{
+   text-align: center;
+   margin-top: 20px;
+
+}
+
+.span5,
+.span7{
+ margin-top: 20px;
+ padding-left: 10px;
+ border-color:grey;
+ border-style:solid;
+ border-bottom: none
+}
+
+.h3{
+  line-height: 10px;
+}
+.span12{
+  margin-top: 100px;
+}
