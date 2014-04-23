@@ -2,8 +2,8 @@ Reversi
 =======
 
 Version 1.0 - 2014_04_23
-A small django app to play reversi with a friend or against an AI
--
+
+##A small django app to play reversi with a friend or against an AI
 
 =======
 
